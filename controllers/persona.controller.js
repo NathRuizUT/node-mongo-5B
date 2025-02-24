@@ -51,6 +51,16 @@ class PersonaController {
         }
     }
 
+    async deletePersona(req, res){
+        try{
+            const persona = await PersonaService.deletePersona(req.params.id);
+            res.json(persona);
+            console.log('Persona eliminada correctamente');
+        }catch(error){
+            res.status(400).json({message: error.message})
+        }
+    }
+
 
     
 }

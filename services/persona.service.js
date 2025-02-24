@@ -86,6 +86,14 @@ class PersonaService{
 
         return await PersonaRepository.updatePersona(id, persona);
     }
+
+    async deletePersona(id) {
+        const persona = await PersonaRepository.getPersonaById(id);
+        if (!persona) {
+            throw new Error('Persona no encontrada.');
+        }
+        return await PersonaRepository.deletePersona(id);
+    }
 }
 
 module.exports = new PersonaService();

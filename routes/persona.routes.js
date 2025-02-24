@@ -7,6 +7,6 @@ router.get('/', PersonaController.getAllPersonas);
 router.get('/id/:id', PersonaController.getPersonaById);
 router.post('/', PersonaController.createPersona);
 router.put('/:id', PersonaController.updatePersona);  
-
+router.delete('/:id', PersonaController.deletePersona);
 
 module.exports = router;
