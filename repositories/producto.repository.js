@@ -37,6 +37,10 @@ class ProductoRepository {
             }
         });
     }
+
+    async getProductoByNumSerieAndNotId(id, numSerie){
+        return await Producto.findOne({_id: {$ne:id}, numSerie: numSerie});
+    }
 }
 
 module.exports = new ProductoRepository();
