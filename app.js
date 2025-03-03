@@ -19,7 +19,7 @@ app.use('/api/asignacionProducto', asignacionProductoRoutes);
 
 //conexión a la base de datos
 
-mongoose.connect('mongodb+srv://nathalyescalona:T3WHW7GrQCC8jF0y@bdcn.g5kr7.mongodb.net/inventario-db?retryWrites=true&w=majority&appName=bdcn')
+mongoose.connect('mongodb+srv://nathalyescalona:ASWEEDA9081@asd.g5kr7.mongodb.net/inventario-db?retryWrites=true&w=majority&appName=asd',{ useNewUrlParser: true, useUnifiedTopology: true })
 //Recuerden que para conectarse es desde su MongoDB Atlas, en la sección de Clusters, en la parte de Connect, seleccionar Driver Node.js y copiar la cadena de conexión
 //la cadena será algo así: mongodb+srv://nathalyescalona:<db_password>@asd.g5kr7.mongodb.net/inventario-db?retryWrites=true&w=majority&appName=asd
 //ustedes deberán cambiarlo a qué se forme así: 
