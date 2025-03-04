@@ -21,11 +21,17 @@ class AsignacionProductoRepository  {
 
     //solo actualizar estado de la asignación
     async inactiveStatusAsignacionProducto(idAsignacion){
-       
+        //actualizar el estado de la asignación a inactivo
+        return await AsignacionProducto.findByIdAndUpdate(
+            idAsignacion, 
+            {estado: 'Inactivo'}, 
+            {new: true}
+            );
 
     }
 
     async getAsignacionProductoById(id){
+        return await AsignacionProducto.findById(id);
     }
 }
 

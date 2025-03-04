@@ -1,21 +1,31 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
+
 const personasRoutes = require('./routes/persona.routes');
+
 
 //------
 const productoRoutes = require('./routes/producto.routes');
 const asignacionProductoRoutes = require('./routes/asignacionProducto.routes');
+const documentosPersonaRoutes = require('./routes/documentos_persona.routes');
+
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+app.use(fileUpload());
+
 
 app.use('/api/personas', personasRoutes);
 //------
 app.use('/api/productos', productoRoutes);
 
 app.use('/api/asignacionProducto', asignacionProductoRoutes);
+
+app.use('/api/documentosPersona', documentosPersonaRoutes);
+
 
 //conexión a la base de datos
 

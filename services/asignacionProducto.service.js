@@ -6,6 +6,26 @@ class AsignacionProductoService {
         return await AsignacionProductoRepository.getAllAsignacionesActivas();
     }
 
+    async getAllAsignacionesProductosByPersona(id){
+        //validar que la persona exista
+        const persona = await PersonaRepository.getPersonaById(id);
+        if(!persona){
+            throw new Error('La persona no existe');
+        }
+
+
+        const asignaciones = await AsignacionProductoRepository.getAllAsignacionesProductosByPersona(id);
+
+        //Formar una respuesta estructurada para que no se repita la información de la persona por cada asignacion
+        let asignacionesPersona = {
+            persona: persona,
+            asignaciones: asignaciones
+        }
+
+        return asignacionesPersona;
+
+    }
+
     async createAsignacionProducto(personaId, productoId) {
         //Validar que la persona exista al igual que el producto
         const persona = await PersonaRepository.getPersonaById(personaId);
@@ -56,6 +76,21 @@ class AsignacionProductoService {
 
         }
         return asignaciones;
+    }
+
+    async inactiveStatusAsignacionProducto(id){
+        
+        //Validar que la asignación exista mediante el id
+        const asignacion = await AsignacionProductoRepository.getAsignacionProductoById(id);
+        if(!asignacion){
+            throw new Error('Asignación no encontrada');
+        }
+
+        // asignacion.estado = 'Inactivo';
+        // await asignacion.save();
+
+        const asignacionInactiva = await AsignacionProductoRepository.inactiveStatusAsignacionProducto(id);
+        return asignacionInactiva;
     }
 };
 

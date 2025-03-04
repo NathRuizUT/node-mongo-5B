@@ -3,9 +3,10 @@ const AsignacionProductoController =  require('../controllers/asignacionProducto
 const router = express.Router();
 
 router.get('/', AsignacionProductoController.getAllAsignacionesActivas);  
-//router.get('/idPersona/:id', AsignacionProductoController.getAllAsignacionesProductosByPersona);
+router.get('/idPersona/:id', AsignacionProductoController.getAllAsignacionesProductosByPersona);
 router.post('/', AsignacionProductoController.createAsignacionProducto);
 router.post('/asignacionProductos', AsignacionProductoController.createAsignacionProductos);
+router.put('/inactivarAsignacion/:id', AsignacionProductoController.inactiveStatusAsignacionProducto);    
 
 
 module.exports = router;
